@@ -454,3 +454,4 @@ $RECYCLE.BIN/
 /src/RedisPrimaryDbApiDemo/RedisApi/appsettings.Development.json
 /src/ElasticSearchDemo/Ingest/Data/all_stocks_5yr.csv
 /src/AwsS3Demo/appsettings.Development.json
+/src/DynamoDBDemo/DynamoDBDemo/appsettings.Development.json
