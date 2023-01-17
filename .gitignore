@@ -455,3 +455,6 @@ $RECYCLE.BIN/
 /src/ElasticSearchDemo/Ingest/Data/all_stocks_5yr.csv
 /src/AwsS3Demo/appsettings.Development.json
 /src/DynamoDBDemo/DynamoDBDemo/appsettings.Development.json
+/src/HelloWorld/.aws-sam
+/src/HelloWorld/.vscode
+/src/VerySimpleAPI/VerySimpleAPI/appsettings.Development.json
