@@ -459,3 +459,4 @@ $RECYCLE.BIN/
 /src/HelloWorld/.vscode
 /src/VerySimpleAPI/VerySimpleAPI/appsettings.Development.json
 /src/BookManager/BookManager/appsettings.Development.json
+/src/AWSCloudwatch.Serilog/AWSCloudwatch.Serilog/appsettings.Development.json
