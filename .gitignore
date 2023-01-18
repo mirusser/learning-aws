@@ -458,3 +458,4 @@ $RECYCLE.BIN/
 /src/HelloWorld/.aws-sam
 /src/HelloWorld/.vscode
 /src/VerySimpleAPI/VerySimpleAPI/appsettings.Development.json
+/src/BookManager/BookManager/appsettings.Development.json
