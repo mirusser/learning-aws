@@ -34,8 +34,8 @@ public sealed class QueueConsumerService : BackgroundService
         ReceiveMessageRequest receiveMessageRequest = new()
         {
             QueueUrl = queueUrlResponse.QueueUrl,
-            AttributeNames = new List<string> { "ALL" },
-            MessageAttributeNames = new List<string> { "ALL" },
+            AttributeNames = new List<string> { "All" },
+            MessageAttributeNames = new List<string> { "All" },
             MaxNumberOfMessages = 1
         };
 
