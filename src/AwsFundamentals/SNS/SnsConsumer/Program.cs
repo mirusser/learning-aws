@@ -1,10 +1,12 @@
 ﻿using Amazon.SQS;
 using Amazon.SQS.Model;
 
+var queueName = args.Length == 1 ? args[0] : "customers";
+
 var cts = new CancellationTokenSource();
 AmazonSQSClient sqsClient = new();
 
-GetQueueUrlResponse queueUrlResponse = await sqsClient.GetQueueUrlAsync("customers");
+GetQueueUrlResponse queueUrlResponse = await sqsClient.GetQueueUrlAsync(queueName);
 
 ReceiveMessageRequest receiveMessageRequest = new()
 {
