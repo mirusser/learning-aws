@@ -26,7 +26,8 @@ public class CustomerRepository : ICustomerRepository
         PutItemRequest createItemRequest = new()
         {
             TableName = tableName,
-            Item = customerAsAttributes
+            Item = customerAsAttributes,
+            ConditionExpression = "attribute_not_exists(pk) and attribute_not_exists(sk)"
         };
 
         var response = await dynamoDB.PutItemAsync(createItemRequest);
@@ -73,7 +74,9 @@ public class CustomerRepository : ICustomerRepository
         })!;
     }
 
-    public async Task<bool> UpdateAsync(CustomerDto customer)
+    public async Task<bool> UpdateAsync(
+        CustomerDto customer,
+        DateTime requestStarted)
     {
         customer.UpdatedAt = DateTime.UtcNow;
         var customerAsJson = JsonSerializer.Serialize(customer);
@@ -82,7 +85,12 @@ public class CustomerRepository : ICustomerRepository
         PutItemRequest updateItemRequest = new()
         {
             TableName = tableName,
-            Item = customerAsAttributes
+            Item = customerAsAttributes,
+            ConditionExpression = "UpdatedAt < :requestStarted",
+            ExpressionAttributeValues = new()
+            {
+                { ":requestStarted", new AttributeValue{ S = requestStarted.ToString("O")} }
+            }
         };
 
         var response = await dynamoDB.PutItemAsync(updateItemRequest);
