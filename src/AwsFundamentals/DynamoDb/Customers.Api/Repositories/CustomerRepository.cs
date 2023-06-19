@@ -4,6 +4,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
 using Customers.Api.Contracts.Data;
+using Customers.Api.Domain;
 
 namespace Customers.Api.Repositories;
 
@@ -54,6 +55,32 @@ public class CustomerRepository : ICustomerRepository
         }
 
         var itemAsDocument = Document.FromAttributeMap(response.Item);
+
+        return JsonSerializer.Deserialize<CustomerDto>(itemAsDocument.ToJson());
+    }
+
+    public async Task<CustomerDto> GetByEmailAsync(string email)
+    {
+        var queryRequest = new QueryRequest
+        {
+            TableName = tableName,
+            IndexName = "email-id-index",
+            KeyConditionExpression = "Email = :v_Email",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                {
+                    ":v_Email", new AttributeValue {S = email }
+                } 
+            }
+        };
+
+        var response = await dynamoDB.QueryAsync(queryRequest);
+        if (response.Items.Count == 0)
+        {
+            return null;
+        }
+
+        var itemAsDocument = Document.FromAttributeMap(response.Items[0]);
 
         return JsonSerializer.Deserialize<CustomerDto>(itemAsDocument.ToJson());
     }

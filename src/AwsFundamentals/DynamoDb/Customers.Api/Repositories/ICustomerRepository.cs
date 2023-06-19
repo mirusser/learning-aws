@@ -8,6 +8,8 @@ public interface ICustomerRepository
 
     Task<CustomerDto?> GetAsync(Guid id);
 
+    Task<CustomerDto?> GetByEmailAsync(string idOrEmail);
+
     Task<IEnumerable<CustomerDto>> GetAllAsync();
 
     Task<bool> UpdateAsync(CustomerDto customer, DateTime requestStarted);

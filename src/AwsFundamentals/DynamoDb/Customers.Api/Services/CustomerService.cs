@@ -57,6 +57,12 @@ public class CustomerService : ICustomerService
         return customerDto?.ToCustomer();
     }
 
+    public async Task<Customer?> GetByEmailAsync(string idOrEmail)
+    {
+        var customerDto = await _customerRepository.GetByEmailAsync(idOrEmail);
+        return customerDto?.ToCustomer();
+    }
+
     public async Task<IEnumerable<Customer>> GetAllAsync()
     {
         var customerDtos = await _customerRepository.GetAllAsync();
@@ -103,4 +109,5 @@ public class CustomerService : ICustomerService
             new ValidationFailure(paramName, message)
         };
     }
+
 }
