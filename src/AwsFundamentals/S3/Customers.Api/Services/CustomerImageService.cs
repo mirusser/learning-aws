@@ -20,9 +20,15 @@ public class CustomerImageService : ICustomerImageService
         throw new NotImplementedException();
     }
 
-    public Task<GetObjectResponse> GetImageResponse(Guid id)
+    public async Task<GetObjectResponse> GetImageAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var getObjectRequest = new GetObjectRequest
+        {
+            BucketName = bucketName,
+            Key = $"images/{id}"
+        };
+
+        return await s3.GetObjectAsync(getObjectRequest);
     }
 
     public async Task<PutObjectResponse> UploadImageAsync(Guid id, IFormFile formFile)
@@ -30,7 +36,7 @@ public class CustomerImageService : ICustomerImageService
         var putObjectRequest = new PutObjectRequest
         {
             BucketName = bucketName,
-            Key = $"image/{id}",
+            Key = $"images/{id}",
             ContentType = formFile.ContentType,
             InputStream = formFile.OpenReadStream(),
             Metadata =
