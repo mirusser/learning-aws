@@ -15,9 +15,15 @@ public class CustomerImageService : ICustomerImageService
         this.s3 = s3;
     }
 
-    public Task<DeleteObjectResponse> DeleteImageAsync(Guid id)
+    public async Task<DeleteObjectResponse> DeleteImageAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var deleteObjectRequest = new DeleteObjectRequest
+        {
+            BucketName = bucketName,
+            Key = $"images/{id}"
+        };
+
+        return await s3.DeleteObjectAsync(deleteObjectRequest);
     }
 
     public async Task<GetObjectResponse> GetImageAsync(Guid id)
