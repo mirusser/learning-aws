@@ -13,6 +13,9 @@ builder.Configuration.AddSecretsManager(configurator: options =>
     options.KeyGenerator = (_, s) => s
         .Replace($"{env}_{appName}_", string.Empty)
         .Replace("__", ":");
+
+    // in real scenario should be longer depending on needs
+    options.PollingInterval = TimeSpan.FromSeconds(10); 
 });
 
 builder.Services.AddControllers();
