@@ -37,7 +37,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SecretsManager", "SecretsMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weather.Api", "SecretsManager\Weather.Api\Weather.Api.csproj", "{B9E76D6F-4010-4054-B443-1EC9F6DCFD8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretsManager.App", "SecretsManager\SecretsManager.App\SecretsManager.App.csproj", "{C3A0C638-3EFB-4FCE-9456-243D1ECFB254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecretsManager.App", "SecretsManager\SecretsManager.App\SecretsManager.App.csproj", "{C3A0C638-3EFB-4FCE-9456-243D1ECFB254}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lambda", "Lambda", "{0D8A60AA-B135-46CC-9B35-5FB300599C85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLambda", "Lambda\SimpleLambda\src\SimpleLambda\SimpleLambda.csproj", "{6B9E2F12-1ABD-4330-9A7A-0D1D0F038ECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +101,10 @@ Global
 		{C3A0C638-3EFB-4FCE-9456-243D1ECFB254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A0C638-3EFB-4FCE-9456-243D1ECFB254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A0C638-3EFB-4FCE-9456-243D1ECFB254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9E2F12-1ABD-4330-9A7A-0D1D0F038ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9E2F12-1ABD-4330-9A7A-0D1D0F038ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9E2F12-1ABD-4330-9A7A-0D1D0F038ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9E2F12-1ABD-4330-9A7A-0D1D0F038ECC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +123,7 @@ Global
 		{D0FDBC09-F6CC-4530-85C3-15F97C995463} = {055AFFFF-1DDE-4E94-90CA-6FFF8CEEF1E1}
 		{B9E76D6F-4010-4054-B443-1EC9F6DCFD8A} = {A7DA245A-767F-4DD0-828F-B18C01DEE880}
 		{C3A0C638-3EFB-4FCE-9456-243D1ECFB254} = {A7DA245A-767F-4DD0-828F-B18C01DEE880}
+		{6B9E2F12-1ABD-4330-9A7A-0D1D0F038ECC} = {0D8A60AA-B135-46CC-9B35-5FB300599C85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {573ACC69-3492-4380-B05F-F1E853C202F7}
